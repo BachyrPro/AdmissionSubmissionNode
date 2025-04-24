@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système d'Admission Universitaire</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="submission">Nouvelle Candidature</button>
+            <button class="tab-btn" data-tab="applications">Liste des Candidatures</button>
+        </nav>
+
+        <!-- Section Soumission -->
+        <section id="submission" class="tab-content active">
+            <h1>Formulaire d'admission</h1>
+            
+            <div id="successMessage" class="alert success" style="display: none;"></div>
+            <div id="errorMessage" class="alert error" style="display: none;"></div>
+            
+            <form id="admissionForm" class="admission-form">
+                <div class="form-group">
+                    <label for="name">Name </label>
+                    <input type="text" id="name" name="name" required>
+                    <div id="name-error" class="error-message"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email </label>
+                    <input type="email" id="email" name="email" required>
+                    <div id="email-error" class="error-message"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact_number"> contact_number </label>
+                    <input type="tel" id="contact_number" name="contact_number" required>
+                    <div id="contact-error" class="error-message"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date_of_birth">Date of birth</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth" required>
+                    <div id="birth-error" class="error-message"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="program_code">Programme study</label>
+                    <select id="program_code" name="program_code" required>
+                        <option value="">Sélect a programe</option>
+                    </select>
+                    <div id="program-error" class="error-message"></div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </section>
+
+        <!-- Section Liste des Candidatures -->
+        <section id="applications" class="tab-content">
+            <h1>List of participants</h1>
+            
+            <div class="filter-section">
+                <label for="statusFilter">Filter by statut:</label>
+                <select id="statusFilter">
+                    <option value="">Tous</option>
+                    <option value="PENDING">En attente</option>
+                    <option value="ACCEPTED">Accepté</option>
+                    <option value="REJECTED">Rejeté</option>
+                </select>
+            </div>
+
+            <div class="table-responsive">
+                <table id="applicationsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Program</th>
+                            <th>Statut</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
